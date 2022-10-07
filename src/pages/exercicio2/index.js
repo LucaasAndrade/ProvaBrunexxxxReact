@@ -1,5 +1,6 @@
 
 import { useState } from 'react'
+import verificarLibra from '../../services/Libra';
 import './index.css'
 
 
@@ -7,19 +8,10 @@ export default function Index() {
 
     const [mes, setMes] = useState('');
     const [dia, setDia] = useState();
-    const [Result, setResult] = useState();
-
-    function verificar(M, D) {
-        if (M == 'Setembro' && D >= 23 || M == 'Outubro' && D <= 22) {
-            return 'Sim'
-        }
-        else {
-            return 'Não'
-        }
-    }
+    const [Result, setResult] = useState('Não');
 
     function verificarClick() {
-        const resp = verificar(mes, dia)
+        const resp = verificarLibra(mes, dia)
         setResult(resp);
     }
 
@@ -35,7 +27,7 @@ export default function Index() {
             <button onClick={verificarClick} >Verificar Signo</button>
 
             <div>
-                <span>{`É do signo de Libra?${Result}`}</span>
+                <span>{`É do signo de Libra? ${Result}`}</span>
             </div>
         </main>
     )

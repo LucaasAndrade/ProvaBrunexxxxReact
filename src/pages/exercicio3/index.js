@@ -1,5 +1,6 @@
 
 import { useState } from 'react'
+import calcularSorvete from '../../services/calcularSorvete';
 import './index.css'
 
 
@@ -8,18 +9,8 @@ export default function Index() {
     const [gramas, setGramas] = useState();
     const [resposta, setResposta] = useState();
 
-    function calcular(qtd) {
-        if (qtd <= 0 || qtd == undefined)
-            return 'Preço Inválido'
-        let preco = 3.5
-        if (qtd >= 1000) {
-            preco = 3    
-        }
-        return preco * (qtd / 100)
-    }
-
     function calcularClick() {
-        const tot = calcular(gramas);
+        const tot = calcularSorvete(gramas);
         setResposta(tot);
     }
 
@@ -34,7 +25,7 @@ export default function Index() {
                 <button onClick={calcularClick}> calcular</button>
 
                 <div>
-                    <span> {resposta} </span>
+                    <span>O total à pagar é R$ {resposta}  </span>
                 </div>
             </div>
         </main>

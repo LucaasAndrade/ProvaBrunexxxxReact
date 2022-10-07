@@ -1,28 +1,17 @@
 
 import './index.css'
 import { useState,  } from 'react';
+import calcularAcai from '../../services/calcularAcai';
 
 export default function Index() {
-    const [QTDp, setQTDp ] = useState();
-    const [ QTDm, setQTDm ] = useState();
-    const [ QTDg, setQTDg ] = useState();
-    const [Desconto, setDesconto] = useState();
+    const [QTDp, setQTDp ] = useState(0);
+    const [ QTDm, setQTDm ] = useState(0);
+    const [ QTDg, setQTDg ] = useState(0);
+    const [Desconto, setDesconto] = useState(0);
     const [resposta, setResposta] = useState();
     
-    function calcular(pequenos, medios, grandes, porcentagem) { 
-        pequenos = pequenos * 13.50;
-        medios = medios * 15;
-        grandes = grandes * 17.50;
-
-        const subTotal = pequenos + medios + grandes;
-        const valor = subTotal * (porcentagem / 100)
-        const total = subTotal - valor;
-        
-        return `Total à pagar R$ ${total}`; 
-    }
-
     function calcularClick() {
-        const calc = calcular(QTDp, QTDm, QTDg, Desconto)
+        const calc = calcularAcai(QTDp, QTDm, QTDg, Desconto)
         setResposta(calc)
     }
 
