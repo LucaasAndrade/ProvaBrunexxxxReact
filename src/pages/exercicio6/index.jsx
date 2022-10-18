@@ -1,8 +1,21 @@
 import './index.scss';
 
+import Tabelinha from '../../components/tabela/tabelinha';
+import { useEffect, useState } from 'react';
+import { classificarTemperatura } from '../../services/classificarTemperatura';
 
-export default function index() {
+export default function Index() {
+    const [temperatura, setTemperatura] = useState(37.5);
+    const [resposta, setResposta] = useState("");
 
+    function classificar() {
+        const x = classificarTemperatura(temperatura);
+        setResposta(x);
+    }
+
+    useEffect(() => {
+        classificar();
+    }, [temperatura])
 
     return (
         <main className='exercicio6'>
@@ -11,52 +24,14 @@ export default function index() {
 
                 <h5> Implementar um programa em React Js que a partir da temperatura, avalie a situação da pessoa conforme a tabela. Ao final, apresente a classificação.</h5>
                 
-                <table>
-                    <tr>
-                        <th>  Média </th>
-                        <th>  Situação </th>
-                    </tr>
-                    <tr>
-                        <td>
-                            menor igual a 41
-                        </td>
-                        <td>
-                            Hipotermia
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Maior igual a 39,6 e menor que 41
-                        </td>
-                        <td>
-                            Febre Alta
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Maior igual a 37,6 e menor que 39, 6 
-                        </td>
-                        <td>
-                            Febre
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Maior igual a 36 e menor que 37,6
-                        </td>
-                        <td>
-                            Normal
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Abaixo de 36
-                        </td>
-                        <td>
-                            Normal
-                        </td>
-                    </tr>
-                </table>
+                <Tabelinha />
+            </div>
+
+            <div>
+                <label> Tempertatura Corporal: </label>
+                <input type='number' value={temperatura} onChange={e => setTemperatura(Number(e.target.value))} />
+
+                <span> { resposta }</span>
             </div>
         </main>
     )
