@@ -12,7 +12,7 @@ export default function Index(){
         const resp = calcularLitros(Matriculados, Litros, Bebem)
         setResposta(resp)
     }
-
+    console.log(Litros)
 
     return(
         <main>
@@ -30,7 +30,7 @@ export default function Index(){
         
             <button onClick={litrosClick}>calcular Litros</button>
 
-            <span>{Resposta}</span>
+            <span> {Resposta} </span>
         </main>
 
     )
