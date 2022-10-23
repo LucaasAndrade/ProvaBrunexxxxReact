@@ -28,10 +28,12 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
 
   border: solid white 1px;
 
-  max-width: 19em;
+  min-width: 50%;
+  max-width: 30em;
 
   margin: 10px;
 }
@@ -39,6 +41,8 @@
 .navegacao p{
   background-color: #2c3851;
   padding: 5px 10px;
+
+  min-width: 5em;
 
   margin: 2.5%;
 

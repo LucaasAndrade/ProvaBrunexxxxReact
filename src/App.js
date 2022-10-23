@@ -22,7 +22,8 @@ function App() {
         <p onClick={() => navigate('/exercicio7')}> Exercicio 7</p>        
         <p onClick={() => navigate('/exercicio8')}> Exercicio 8</p>        
         <p onClick={() => navigate('/exercicio9')}> Exercicio 9</p>        
-        <p onClick={() => navigate('/exercicio10')}> Exercicio 10</p>        
+        <p onClick={() => navigate('/exercicio10')}> Exercicio 10</p>   
+        <p onClick={() => navigate('/exerciciocafe')}> Cofee  ☕</p>   
         </div>
       </header>
     </div>

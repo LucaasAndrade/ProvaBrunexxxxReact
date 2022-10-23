@@ -1,9 +1,8 @@
-export default function calcularLitros(N, L, D){
-    let litros = D /1000
-    let total = litros * N
-
-   while(total > L){
-    L = L+L
-   }
-return L
+export default function calcularLitros(qtdAluno, mlPorAluno, litrosFeitos){
+    let ml = litrosFeitos / 1000;
+    let consumido = mlPorAluno - ml;
+    if (consumido < 0) {
+        litrosFeitos = litrosFeitos * (mlPorAluno / 1000 *)
+    }
+   
 }
